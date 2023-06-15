@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Админ-Панель</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tab1">Создание товара</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab2">Категории товаров</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab3">Создание заказа</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab4">Обратная связь</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab5">Отправка СМС</a>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-2">
+      <div class="tab-pane fade show active" id="tab1">
+        <h4>Создание товара</h4>
+        <form id="product-form">
+          <div class="form-group">
+            <label for="product-name">Название товара</label>
+            <input type="text" class="form-control" id="product-name" required>
+          </div>
+          <div class="form-group">
+            <label for="product-price">Цена товара</label>
+            <input type="number" class="form-control" id="product-price" required>
+          </div>
+          <div class="form-group">
+            <label for="product-description">Описание товара</label>
+            <textarea class="form-control" id="product-description" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product-quantity">Количество товара в наличии</label>
+            <input type="number" class="form-control" id="product-quantity" required>
+          </div>
+          <div class="form-group">
+            <label for="product-category">Категория товара</label>
+            <select class="form-control" id="product-category" required>
+              <option value="">Выберите категорию</option>
+              <option value="category1">Категория 1</option>
+              <option value="category2">Категория 2</option>
+              <option value="category3">Категория 3</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="tab2">
+        <h4>Создание категории товаров</h4>
+        <form id="category-form">
+          <div class="form-group">
+            <label for="category-name">Название категории</label>
+            <input type="text" class="form-control" id="category-name" required>
+          </div>
+          <div class="form-group">
+            <label for="delivery-address">Адрес доставки</label>
+            <input type="text" class="form-control" id="delivery-address" required>
+          </div>
+          <div class="form-group">
+            <label for="payment-method">Способ оплаты</label>
+            <select class="form-control" id="payment-method" required>
+              <option value="">Выберите способ оплаты</option>
+              <option value="cash">Наличные</option>
+              <option value="card">Карта</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="order-notes">Примечания к заказу</label>
+            <textarea class="form-control" id="order-notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="tab3">
+        <h4>Создание заказа</h4>
+        <form id="order-form">
+          <div class="form-group">
+            <label for="customer-name">Имя клиента</label>
+            <input type="text" class="form-control" id="customer-name" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="tab4">
+        <h4>Обратная связь</h4>
+        <form id="email-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="tab5">
+        <h4>Отправка СМС</h4>
+        <form id="sms-form">
+          <div class="form-group">
+            <label for="phone-number">Номер телефона</label>
+            <input type="text" class="form-control" id="phone-number" data-inputmask="'mask': '+7 (999) 999-9999'" required>
+          </div>
+          <div class="form-group">
+            <label for="sms-message">Сообщение</label>
+            <textarea class="form-control" id="sms-message" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#phone-number').inputmask();
+
+      $('#product-form, #category-form, #order-form, #email-form, #sms-form').submit(function(event) {
+        if (!$(this)[0].checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        $(this).addClass('was-validated');
+      });
+    });
+  </script>
+</body>
+</html>
