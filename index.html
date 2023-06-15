@@ -64,6 +64,17 @@
             <label for="category-name">Название категории</label>
             <input type="text" class="form-control" id="category-name" required>
           </div>
+          <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="tab3">
+        <h4>Создание заказа</h4>
+        <form id="order-form">
+          <div class="form-group">
+            <label for="customer-name">Имя клиента</label>
+            <input type="text" class="form-control" id="customer-name" required>
+          </div>
           <div class="form-group">
             <label for="delivery-address">Адрес доставки</label>
             <input type="text" class="form-control" id="delivery-address" required>
@@ -79,17 +90,6 @@
           <div class="form-group">
             <label for="order-notes">Примечания к заказу</label>
             <textarea class="form-control" id="order-notes" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Создать</button>
-        </form>
-      </div>
-
-      <div class="tab-pane fade" id="tab3">
-        <h4>Создание заказа</h4>
-        <form id="order-form">
-          <div class="form-group">
-            <label for="customer-name">Имя клиента</label>
-            <input type="text" class="form-control" id="customer-name" required>
           </div>
           <button type="submit" class="btn btn-primary">Создать</button>
         </form>
@@ -115,7 +115,7 @@
         <form id="sms-form">
           <div class="form-group">
             <label for="phone-number">Номер телефона</label>
-            <input type="text" class="form-control" id="phone-number" data-inputmask="'mask': '+7 (999) 999-9999'" required>
+            <input type="text" class="form-control" id="phone-number" data-inputmask="'mask': '+38(999) 999-9999'" required>
           </div>
           <div class="form-group">
             <label for="sms-message">Сообщение</label>
